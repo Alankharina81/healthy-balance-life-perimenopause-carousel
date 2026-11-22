@@ -21,16 +21,19 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:19px clamp(16
 @media(max-width:850px){.workspace{grid-template-columns:1fr}.preview{order:1}.editor{order:2}}@media(max-width:560px){.topbar{align-items:flex-start}.actions{flex-wrap:wrap;justify-content:flex-end}.saved{display:none}.button{padding:8px 9px;font-size:9px}.brand b{font-size:9px}main{padding:32px 14px 44px}.stage{padding:8px}footer{flex-direction:column;gap:8px}}
 
 
-/* Overflow guard: keep the top and bottom brand bars inside the 4:5 artboard. */
-.slide{box-sizing:border-box;min-height:0}
-.slide-top,.slide-bottom{flex:0 0 auto;min-width:0}
-.slide-top span,.slide-bottom span{min-width:0;overflow-wrap:anywhere}
-.cover-content,.detail-content{flex:1 1 auto;min-height:0;box-sizing:border-box}
-.detail-content{justify-content:flex-start;padding-top:5%;padding-bottom:4%}
-.detail-content h2{font-size:clamp(24px,4.25vw,43px);line-height:1.04;margin:5% 0 4%}
-.detail-content p{font-size:clamp(11px,1.55vw,14px);line-height:1.52}
-.detail-content .emphasis{margin-top:6%;padding:3.5% 4%;font-size:clamp(9px,1.25vw,12px);line-height:1.45}
-.cover-content{padding:5% 0 3%;justify-content:center}
-.cover-content h2{font-size:clamp(30px,5.3vw,54px);margin:6% 0 5%;line-height:.98}
-.cover-content p{font-size:clamp(10px,1.5vw,14px);line-height:1.45}
-.cover-mark{margin-top:6%;font-size:clamp(6px,1vw,8px)}
+/* Fit typography to the slide itself, not the browser viewport. */
+.slide{container-type:inline-size}
+.slide-top{font-size:clamp(7px,1.65cqw,10px);gap:3cqw;padding-bottom:2.7cqw}
+.slide-top span:last-child{padding-left:2.7cqw}
+.slide-bottom{font-size:clamp(6px,1.35cqw,8px);padding-top:2.2cqw;letter-spacing:.09em}
+.cover-content{padding:5cqw 0 3cqw;justify-content:center;min-height:0}
+.cover-content .kicker{font-size:clamp(8px,2cqw,11px);letter-spacing:.13em}
+.cover-content h2{font-size:clamp(27px,10.2cqw,53px);line-height:.99;letter-spacing:-.055em;margin:6cqw 0 5cqw;overflow-wrap:normal;word-break:normal;hyphens:none}
+.cover-content p{font-size:clamp(11px,3.15cqw,16px);line-height:1.48}
+.cover-mark{font-size:clamp(7px,1.9cqw,10px);margin-top:5cqw;gap:2.5cqw}
+.cover-mark:before{flex:0 0 9cqw}
+.detail-content{justify-content:flex-start;padding:5cqw 0 2cqw;gap:0}
+.detail-content .number{font-size:clamp(9px,2.4cqw,12px)}
+.detail-content h2{font-size:clamp(23px,7.5cqw,39px);line-height:1.04;letter-spacing:-.035em;margin:6cqw 0 5cqw;overflow-wrap:normal;word-break:normal;hyphens:none}
+.detail-content p{font-size:clamp(11px,3cqw,15px);line-height:1.48}
+.detail-content .emphasis{font-size:clamp(9px,2.45cqw,12px);line-height:1.4;margin-top:5cqw;padding:3.2cqw 3.8cqw;border-radius:9px}
