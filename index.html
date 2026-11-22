@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Template carousel dark editorial Healthy Balance Life untuk edukasi perempuan usia 35+.">
+<title>Healthy Balance Life — Dark Carousel Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">H</span><span><b>HEALTHY BALANCE LIFE</b><small>DARK EDITORIAL STUDIO</small></span></a>
+  <div class="actions"><span class="saved"><i></i> Editor siap</span><button id="resetBtn" class="button ghost">Reset contoh</button><button id="downloadBtn" class="button primary">Unduh 5 slide PNG</button></div>
+</header>
+<main>
+  <section class="hero"><p class="eyebrow">CONTENT DESIGN SYSTEM / 01</p><h1>Stories that make<br><em>wellness</em> understood.</h1><p>Template carousel edukasi dengan tampilan gelap, tipografi kuat, dan aksen turquoise.</p></section>
+  <section class="workspace">
+    <aside class="editor panel">
+      <div class="panel-head"><div><p class="eyebrow">CONTENT EDITOR</p><h2>Materi carousel</h2></div><span class="format">5 SLIDES · 4:5</span></div>
+      <label for="topic">Judul utama / topik</label><input id="topic" maxlength="90" value="SEBENARNYA PERIMENOPAUSE ITU APA SIH?">
+      <label for="subtitle">Subjudul cover</label><textarea id="subtitle" rows="3" maxlength="180">Dan kenapa usia 40-an tubuh kita tiba-tiba terasa “kok beda banget?”</textarea>
+      <div class="rule"></div><div id="slideFields"></div>
+      <p class="note"><b>Catatan desain:</b> Slide 1 untuk judul utama. Slide 2–5 untuk penjelasan bertahap. Gunakan kalimat pendek dan sorot satu gagasan penting pada tiap slide.</p>
+    </aside>
+    <section class="preview">
+      <div class="preview-head"><div><p class="eyebrow">LIVE PREVIEW</p><h2>Pratinjau desain</h2></div><div class="nav"><button id="prevBtn" aria-label="Slide sebelumnya">←</button><b id="counter">01 / 05</b><button id="nextBtn" aria-label="Slide berikutnya">→</button></div></div>
+      <div class="stage"><article id="slideCanvas" class="slide" aria-label="Pratinjau slide"></article></div>
+      <div id="thumbs" class="thumbs"></div>
+      <p class="helper">1080 × 1350 px · Instagram portrait 4:5 · PNG</p>
+    </section>
+  </section>
+</main>
+<footer><span>HEALTHY BALANCE LIFE</span><span>COACH KHARINA · WELLNESS EDUCATION FOR WOMEN 35+</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
+<script src="app.js"></script>
+</body></html>
