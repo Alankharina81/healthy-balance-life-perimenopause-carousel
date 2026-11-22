@@ -19,3 +19,18 @@ label{display:block;margin:15px 0 7px;font-size:10px;font-weight:700;color:#c5cc
 .thumbs{display:flex;justify-content:center;gap:7px;margin-top:13px;flex-wrap:wrap}.thumb{border:1px solid #303a3e;background:#111619;color:#9eabad;border-radius:4px;padding:8px 11px;font-size:9px;cursor:pointer}.thumb.active{border-color:var(--cyan);background:#142629;color:var(--cyan)}.helper{text-align:center;margin:13px 0;color:#758185;font-size:9px}
 footer{display:flex;justify-content:space-between;gap:15px;padding:19px clamp(16px,5vw,72px);border-top:1px solid #252d31;font-size:8px;font-weight:700;letter-spacing:.14em;color:#778489}
 @media(max-width:850px){.workspace{grid-template-columns:1fr}.preview{order:1}.editor{order:2}}@media(max-width:560px){.topbar{align-items:flex-start}.actions{flex-wrap:wrap;justify-content:flex-end}.saved{display:none}.button{padding:8px 9px;font-size:9px}.brand b{font-size:9px}main{padding:32px 14px 44px}.stage{padding:8px}footer{flex-direction:column;gap:8px}}
+
+
+/* Overflow guard: keep the top and bottom brand bars inside the 4:5 artboard. */
+.slide{box-sizing:border-box;min-height:0}
+.slide-top,.slide-bottom{flex:0 0 auto;min-width:0}
+.slide-top span,.slide-bottom span{min-width:0;overflow-wrap:anywhere}
+.cover-content,.detail-content{flex:1 1 auto;min-height:0;box-sizing:border-box}
+.detail-content{justify-content:flex-start;padding-top:5%;padding-bottom:4%}
+.detail-content h2{font-size:clamp(24px,4.25vw,43px);line-height:1.04;margin:5% 0 4%}
+.detail-content p{font-size:clamp(11px,1.55vw,14px);line-height:1.52}
+.detail-content .emphasis{margin-top:6%;padding:3.5% 4%;font-size:clamp(9px,1.25vw,12px);line-height:1.45}
+.cover-content{padding:5% 0 3%;justify-content:center}
+.cover-content h2{font-size:clamp(30px,5.3vw,54px);margin:6% 0 5%;line-height:.98}
+.cover-content p{font-size:clamp(10px,1.5vw,14px);line-height:1.45}
+.cover-mark{margin-top:6%;font-size:clamp(6px,1vw,8px)}
