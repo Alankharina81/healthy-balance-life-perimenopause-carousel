@@ -33,13 +33,13 @@ function render(){
   const n=String(active+1).padStart(2,"0");
   $("#counter").textContent=n+" / 05";
   thumbs.querySelectorAll("button").forEach((b,i)=>b.classList.toggle("active",i===active));
-  const top='<div class="slide-top"><span>HEALTHY BALANCE LIFE</span><span>WELLNESS UNTUK<br>WANITA 35+ · '+n+'/05</span></div>';
-  const bottom='<div class="slide-bottom"><span>WELLNESS EDUCATION · WOMEN 35+</span><span>COACH KHARINA</span></div>';
+  const top='<div class="slide-top"><span class="slide-logo"><span class="logo-line">Healthy <i></i></span><span>Balance Life</span></span><span class="slide-meta">WELLNESS UNTUK<br>WANITA 35+</span></div>';
+  const bottom='';
   if(active===0){
-    canvas.innerHTML=top+'<div class="cover-content"><span class="kicker">WELLNESS NOTES · WOMEN 35+</span><h2>'+highlightTitle(topic.value||"JUDUL UTAMA CAROUSEL")+'</h2><p>'+esc(subtitle.value||"Tambahkan subjudul atau konteks singkat untuk cover.")+'</p><div class="cover-mark">KAMU BELUM MENOPAUSE, TUBUH MULAI BERUBAH</div></div>'+bottom;
+    canvas.innerHTML=top+'<div class="cover-content"><h2>'+highlightTitle(topic.value||"JUDUL UTAMA CAROUSEL")+'</h2><div class="cover-rule"></div><p>'+esc(subtitle.value||"Tambahkan subjudul atau konteks singkat untuk cover.")+'</p></div>'+bottom;
   }else{
     const s=slides[active-1];
-    canvas.innerHTML=top+'<div class="detail-content"><span class="number">INSIGHT / 0'+active+'</span><h2>'+highlightTitle(s.title)+'</h2><p>'+esc(s.body)+'</p><div class="emphasis">'+esc(s.emphasis)+'</div></div>'+bottom;
+    canvas.innerHTML=top+'<div class="detail-content"><h2>'+highlightTitle(s.title)+'</h2><div class="detail-rule"></div><p>'+esc(s.body)+'</p><div class="emphasis"><span class="info-icon">i</span><span>'+esc(s.emphasis)+'</span></div></div>'+bottom;
   }
 }
 fieldWrap.addEventListener("input",e=>{
