@@ -33,7 +33,7 @@ function render(){
   const n=String(active+1).padStart(2,"0");
   $("#counter").textContent=n+" / 05";
   thumbs.querySelectorAll("button").forEach((b,i)=>b.classList.toggle("active",i===active));
-  const top='<div class="slide-top"><span class="slide-logo"><span class="logo-line">Healthy <i class="logo-leaf"></i></span><span>Balance Life</span></span><span class="slide-meta">WELLNESS UNTUK<br>WANITA 35+</span></div>';
+  const top='<div class="slide-top"><span class="slide-logo"><span class="logo-line">Healthy <i class="logo-leaf"></i></span><span>Balance Life</span></span><span class="slide-meta">WELLNESS UNTUK<br>WANITA 35+ · '+n+' / 05</span></div>';
   if(active===0){
     const coverSubtitle=esc(subtitle.value||"Tambahkan subjudul atau konteks singkat untuk cover.").replace(/(“[^”]+”)/g,'<strong>$1</strong>');
     canvas.innerHTML=top+'<div class="cover-content"><h2>'+highlightTitle(topic.value||"JUDUL UTAMA CAROUSEL")+'</h2><div class="cover-rule"></div><p>'+coverSubtitle+'</p></div>';
@@ -53,7 +53,7 @@ $("#prevBtn").addEventListener("click",()=>{active=(active+4)%5;render();});
 $("#nextBtn").addEventListener("click",()=>{active=(active+1)%5;render();});
 $("#resetBtn").addEventListener("click",()=>{
   topic.value="SEBENARNYA PERIMENOPAUSE ITU APA SIH?";
-  subtitle.value="Dan kenapa usia 40-an tubuh kita tiba-tiba terasa “kok beda banget?”";
+  subtitle.value="Dan kenapa usia 35–55 tahun, tubuh kita tiba-tiba terasa “kok beda banget?”";
   slides=sampleSlides.map(s=>({...s}));active=0;renderFields();renderThumbs();render();
 });
 $("#downloadBtn").addEventListener("click",async()=>{
