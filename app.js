@@ -14,7 +14,7 @@ let slides = sampleSlides.map(s => ({...s}));
 let active = 0;
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function highlightTitle(s){
-  const terms = ["PERIMENOPAUSE","MENOPAUSE","HORMON","TUBUH","USIA 35+"];
+  const terms = ["PERIMENOPAUSE","MENOPAUSE","HORMON","TUBUH","USIA 40-AN"];
   let out = esc(s);
   for(const term of terms){
     const re = new RegExp("(" + term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + ")","ig");
@@ -33,13 +33,14 @@ function render(){
   const n=String(active+1).padStart(2,"0");
   $("#counter").textContent=n+" / 05";
   thumbs.querySelectorAll("button").forEach((b,i)=>b.classList.toggle("active",i===active));
-  const top='<div class="slide-top"><span class="slide-logo"><span class="logo-line">Healthy <i></i></span><span>Balance Life</span></span><span class="slide-meta">WELLNESS UNTUK<br>WANITA 35+</span></div>';
-  const bottom='';
+  const top='<div class="slide-top"><span class="slide-logo"><span class="logo-line">Healthy <i class="logo-leaf"></i></span><span>Balance Life</span></span><span class="slide-meta">WELLNESS UNTUK<br>WANITA 35+</span></div>';
   if(active===0){
-    canvas.innerHTML=top+'<div class="cover-content"><h2>'+highlightTitle(topic.value||"JUDUL UTAMA CAROUSEL")+'</h2><div class="cover-rule"></div><p>'+esc(subtitle.value||"Tambahkan subjudul atau konteks singkat untuk cover.")+'</p></div>'+bottom;
+    const coverSubtitle=esc(subtitle.value||"Tambahkan subjudul atau konteks singkat untuk cover.").replace(/(“[^”]+”)/g,'<strong>$1</strong>');
+    canvas.innerHTML=top+'<div class="cover-content"><h2>'+highlightTitle(topic.value||"JUDUL UTAMA CAROUSEL")+'</h2><div class="cover-rule"></div><p>'+coverSubtitle+'</p></div>';
   }else{
     const s=slides[active-1];
-    canvas.innerHTML=top+'<div class="detail-content"><h2>'+highlightTitle(s.title)+'</h2><div class="detail-rule"></div><p>'+esc(s.body)+'</p><div class="emphasis"><span class="info-icon">i</span><span>'+esc(s.emphasis)+'</span></div></div>'+bottom;
+    const body=esc(s.body).replace(/(estrogen|progesteron|siklus menstruasi|rasa panas mendadak|gangguan tidur)/gi,'<strong>$1</strong>');
+    canvas.innerHTML=top+'<div class="detail-content"><h2>'+highlightTitle(s.title)+'</h2><div class="detail-rule"></div><p>'+body+'</p><div class="emphasis"><i class="info-icon">i</i><span class="emphasis-copy">'+esc(s.emphasis)+'</span></div></div>';
   }
 }
 fieldWrap.addEventListener("input",e=>{
@@ -52,7 +53,7 @@ $("#prevBtn").addEventListener("click",()=>{active=(active+4)%5;render();});
 $("#nextBtn").addEventListener("click",()=>{active=(active+1)%5;render();});
 $("#resetBtn").addEventListener("click",()=>{
   topic.value="SEBENARNYA PERIMENOPAUSE ITU APA SIH?";
-  subtitle.value="Dan kenapa usia 35–55 tahun, tubuh kita tiba-tiba terasa “kok beda banget?”";
+  subtitle.value="Dan kenapa usia 40-an tubuh kita tiba-tiba terasa “kok beda banget?”";
   slides=sampleSlides.map(s=>({...s}));active=0;renderFields();renderThumbs();render();
 });
 $("#downloadBtn").addEventListener("click",async()=>{
